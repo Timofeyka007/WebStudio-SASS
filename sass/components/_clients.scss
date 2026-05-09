@@ -1,0 +1,52 @@
+.clients-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.clients-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 92px;
+  color: $icon-color;
+  border: 1px solid $icon-color;
+  border-radius: 4px;
+  transition: border-color 250ms ease, color 250ms ease;
+  animation: scaleIn 550ms ease both;
+
+  &:hover,
+  &:focus {
+    color: var(--hover_and_logo-color);
+    border-color: var(--hover_and_logo-color);
+  }
+}
+
+.clients-item {
+  &:nth-child(2) .clients-link {
+    animation-delay: 80ms;
+  }
+
+  &:nth-child(3) .clients-link {
+    animation-delay: 160ms;
+  }
+
+  &:nth-child(4) .clients-link {
+    animation-delay: 240ms;
+  }
+
+  &:nth-child(5) .clients-link {
+    animation-delay: 320ms;
+  }
+
+  &:nth-child(6) .clients-link {
+    animation-delay: 400ms;
+  }
+}
+
+.clients-icon {
+  width: 106px;
+  height: 60px;
+  fill: currentColor;
+}

@@ -1,0 +1,42 @@
+.hero {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url("../image/backgroundbigimg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: var(--first_and_last_background-color);
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-title {
+  animation: fadeInUp 800ms ease 150ms both;
+}
+
+.hero-button {
+  padding: 10px 32px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--hover_and_logo-color);
+  color: var(--photo_and_h1-color);
+  cursor: pointer;
+  transition: background-color 250ms ease, box-shadow 250ms ease;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 800ms ease 350ms both, softPulse 2600ms ease-in-out 1400ms infinite;
+
+  &:hover,
+  &:focus {
+    background-color: $accent-hover-color;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    animation-play-state: paused;
+  }
+}

@@ -1,0 +1,210 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  padding: 20px;
+  background-color: rgba(46, 47, 66, 0.4);
+  opacity: 1;
+  visibility: visible;
+  overflow-y: auto;
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    .modal {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+
+  &:not(.is-hidden) .modal {
+    animation: modalOpen 300ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 528px;
+  min-height: 581px;
+  padding: 72px 40px 40px;
+  border-radius: 4px;
+  background-color: $white-color;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition:
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: $light-background-color;
+  color: var(--secondlogo-color);
+  cursor: pointer;
+  transition: background-color 250ms ease, color 250ms ease, border-color 250ms ease;
+
+  &:hover,
+  &:focus {
+    background-color: var(--hover_and_logo-color);
+    color: var(--photo_and_h1-color);
+    border-color: var(--hover_and_logo-color);
+  }
+}
+
+.modal-close-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-title {
+  margin: 0 0 16px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--nav_and_h-color);
+}
+
+.modal-label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-wrap {
+  position: relative;
+  display: block;
+
+  &:hover .modal-input-icon {
+    fill: var(--hover_and_logo-color);
+  }
+}
+
+.modal-text {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.16;
+  color: var(--maintext-color);
+}
+
+.modal-input,
+.modal-textarea {
+  width: 100%;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: transparent;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover_and_logo-color);
+    box-shadow: 0px 0px 0px 1px rgba(33, 150, 243, 0.2);
+  }
+}
+
+.modal-input {
+  height: 40px;
+  padding: 0 16px 0 42px;
+
+  &:focus + .modal-input-icon {
+    fill: var(--hover_and_logo-color);
+  }
+}
+
+.modal-textarea {
+  min-height: 120px;
+  padding: 12px 16px;
+  resize: none;
+
+  &::placeholder {
+    color: rgba(117, 117, 117, 0.5);
+  }
+}
+
+.modal-input-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  fill: var(--nav_and_h-color);
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: fill 250ms ease;
+}
+
+.modal-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 24px;
+  font-size: 14px;
+  color: var(--maintext-color);
+}
+
+.modal-checkbox {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--hover_and_logo-color);
+}
+
+.modal-policy-link {
+  color: var(--hover_and_logo-color);
+  text-decoration: underline;
+}
+
+.modal-submit-btn {
+  min-width: 169px;
+  margin: 0 auto;
+  padding: 10px 32px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--hover_and_logo-color);
+  color: var(--photo_and_h1-color);
+  cursor: pointer;
+  transition: background-color 250ms ease, box-shadow 250ms ease;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  &:hover,
+  &:focus {
+    background-color: $accent-hover-color;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  }
+}

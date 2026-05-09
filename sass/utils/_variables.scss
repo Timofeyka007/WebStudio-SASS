@@ -1,0 +1,21 @@
+$primary-text-color: #212121;
+$secondary-text-color: #757575;
+$white-color: #ffffff;
+$accent-color: #2196f3;
+$accent-hover-color: #188ce8;
+$black-color: #000000;
+$dark-background-color: #2f303a;
+$border-color: #ececec;
+$light-background-color: #f5f4fa;
+$icon-color: #afb1b8;
+
+:root {
+  --nav_and_h-color: #{$primary-text-color};
+  --maintext-color: #{$secondary-text-color};
+  --photo_and_h1-color: #{$white-color};
+  --hover_and_logo-color: #{$accent-color};
+  --secondlogo-color: #{$black-color};
+  --first_and_last_background-color: #{$dark-background-color};
+  --navcontainer-color: #{$border-color};
+  --third_background-color: #{$light-background-color};
+}

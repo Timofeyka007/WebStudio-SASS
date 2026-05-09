@@ -1,0 +1,105 @@
+.footer-address {
+  font-style: normal;
+  color: var(--photo_and_h1-color);
+}
+
+.footer-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 70px;
+}
+
+.footer-logo {
+  margin-bottom: 20px;
+  margin-top: 60px;
+}
+
+.footer-email,
+.footer-phone {
+  color: var(--maintext-color);
+}
+
+.footer-socials {
+  margin-top: 72px;
+}
+
+.footer-socials-title,
+.footer-subscribe-title {
+  margin: 0 0 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--photo_and_h1-color);
+}
+
+.footer-social-link {
+  color: var(--photo_and_h1-color);
+  background-color: rgba(255, 255, 255, 0.1);
+
+  &:hover,
+  &:focus {
+    color: var(--photo_and_h1-color);
+    background-color: var(--hover_and_logo-color);
+  }
+}
+
+.footer-subscribe {
+  margin-top: 72px;
+  margin-left: auto;
+}
+
+.footer-subscribe-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-subscribe-input {
+  width: 358px;
+  height: 50px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--photo_and_h1-color);
+  outline: transparent;
+  transition: border-color 250ms ease;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  &:focus {
+    border-color: var(--hover_and_logo-color);
+  }
+}
+
+.footer-subscribe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  height: 50px;
+  padding: 0 24px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--hover_and_logo-color);
+  color: var(--photo_and_h1-color);
+  cursor: pointer;
+  transition: background-color 250ms ease, box-shadow 250ms ease;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  &:hover,
+  &:focus {
+    background-color: $accent-hover-color;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.footer-subscribe-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
