@@ -1,45 +1,50 @@
-.services-list {
-  display: flex;
-  gap: 30px;
-}
+.services {
+  display: none;
 
-.services-item {
-  position: relative;
-  overflow: hidden;
-  animation: scaleIn 650ms ease both;
-
-  &:nth-child(2) {
-    animation-delay: 140ms;
+  @media (min-width: 1200px) {
+    display: block;
+    padding-top: 0;
   }
 
-  &:nth-child(3) {
-    animation-delay: 280ms;
+  &__list {
+    @include flex($gap: 30px);
   }
 
-  &:hover .services-image {
-    transform: scale(1.04);
+  &__item {
+    position: relative;
+    overflow: hidden;
+    animation: scaleIn 650ms ease both;
+
+    &:nth-child(2) {
+      animation-delay: 140ms;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 280ms;
+    }
+
+    &:hover .services__image {
+      transform: scale(1.04);
+    }
   }
-}
 
-.services-image {
-  width: 370px;
-  height: 294px;
-  object-fit: cover;
-  display: block;
-  transition: transform 350ms ease;
-}
+  &__image {
+    @include size(370px, 294px);
+    object-fit: cover;
+    display: block;
+    @include transition(transform 350ms ease);
+  }
 
-.label {
-  display: flex;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  min-height: 70px;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  color: $white-color;
-  text-transform: uppercase;
-  background-color: rgba(0, 0, 0, 0.6);
+  &__label {
+    @include flex($justify: center, $align: center);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 70px;
+    margin: 0;
+    color: $color-white;
+    text-transform: uppercase;
+    background-color: $color-black-overlay;
+  }
 }

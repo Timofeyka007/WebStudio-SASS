@@ -1,54 +1,93 @@
-.features-list {
-  display: flex;
-  gap: 30px;
-}
+.features {
+  &__list {
+    @include flex($gap: 30px);
+    flex-direction: column;
 
-.features-item {
-  width: 270px;
-  animation: fadeInUp 650ms ease both;
+    @media (min-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
 
-  &:nth-child(2) {
-    animation-delay: 120ms;
+    @media (min-width: 1200px) {
+      flex-wrap: nowrap;
+    }
   }
 
-  &:nth-child(3) {
-    animation-delay: 240ms;
+  &__item {
+    width: 100%;
+    @extend %card-motion;
+
+    @media (min-width: 768px) {
+      flex-basis: calc((100% - 30px) / 2);
+    }
+
+    @media (min-width: 1200px) {
+      flex-basis: calc((100% - 90px) / 4);
+    }
+
+    &:nth-child(2) {
+      animation-delay: 120ms;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 240ms;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 360ms;
+    }
+
+    &::before {
+      content: "";
+      @include flex;
+      height: 120px;
+      margin-bottom: 30px;
+      background-color: $color-light-background;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 4px;
+      @include transition(transform 250ms ease, box-shadow 250ms ease);
+    }
+
+    &:hover::before {
+      transform: translateY(-6px);
+      box-shadow: 0px 10px 22px $color-accent-card-shadow;
+    }
+
+    &--attention::before {
+      background-image: url(../image/attention.svg);
+    }
+
+    &--punctuality::before {
+      background-image: url(../image/punctuation.svg);
+    }
+
+    &--planning::before {
+      background-image: url(../image/planning.svg);
+    }
+
+    &--technology::before {
+      background-image: url(../image/technologies.svg);
+    }
   }
 
-  &:nth-child(4) {
-    animation-delay: 360ms;
+  &__title {
+    margin: 0 0 10px;
+    text-align: center;
+    font-family: $font-secondary;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.14;
+    text-transform: uppercase;
+    color: $color-primary-text;
+
+    @media (min-width: 768px) {
+      text-align: left;
+    }
   }
 
-  &::before {
-    content: "";
-    display: flex;
-    height: 120px;
-    margin-bottom: 30px;
-    background-color: var(--third_background-color);
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 4px;
-    transition: transform 250ms ease, box-shadow 250ms ease;
+  &__text {
+    margin: 0;
+    color: $color-secondary-text;
   }
-
-  &:hover::before {
-    transform: translateY(-6px);
-    box-shadow: 0px 10px 22px rgba(33, 150, 243, 0.18);
-  }
-}
-
-.features-icon-1::before {
-  background-image: url(../image/attention.svg);
-}
-
-.features-icon-2::before {
-  background-image: url(../image/punctuation.svg);
-}
-
-.features-icon-3::before {
-  background-image: url(../image/planning.svg);
-}
-
-.features-icon-4::before {
-  background-image: url(../image/technologies.svg);
 }

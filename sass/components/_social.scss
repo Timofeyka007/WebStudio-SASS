@@ -1,33 +1,22 @@
-.social-list,
-.footer-social-list {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.social-link,
-.footer-social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  color: $icon-color;
-  transition: background-color 250ms ease, color 250ms ease;
-}
-
-.social-link {
-  &:hover,
-  &:focus {
-    background-color: var(--hover_and_logo-color);
-    color: var(--photo_and_h1-color);
+.social {
+  &__list {
+    @extend %centered-list;
+    gap: 10px;
   }
-}
 
-.social-icon,
-.footer-social-icon {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+  &__link {
+    @extend %centered-icon-link;
+    @include size(44px);
+    color: $color-icon;
+
+    @include hover-focus {
+      background-color: $color-accent;
+      color: $color-white;
+    }
+  }
+
+  &__icon {
+    @include size(20px);
+    fill: currentColor;
+  }
 }

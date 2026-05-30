@@ -1,54 +1,72 @@
 .team {
-  background-color: var(--third_background-color);
-}
+  background-color: $color-light-background;
 
-.team-list {
-  display: flex;
-  gap: 30px;
-}
+  &__list {
+    @include flex($gap: 30px);
+    flex-direction: column;
 
-.team-item {
-  background-color: var(--photo_and_h1-color);
-  text-align: center;
-  padding-bottom: 30px;
-  animation: fadeInUp 650ms ease both;
-  transition: transform 250ms ease, box-shadow 250ms ease;
-  box-shadow:
-    0px 1px 3px rgba(0, 0, 0, 0.12),
-    0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+    @media (min-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
 
-  &:nth-child(2) {
-    animation-delay: 120ms;
+    @media (min-width: 1200px) {
+      flex-wrap: nowrap;
+    }
   }
 
-  &:nth-child(3) {
-    animation-delay: 240ms;
+  &__item {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: $color-white;
+    text-align: center;
+    padding-bottom: 30px;
+    @extend %card-motion;
+    box-shadow: $shadow-team;
+
+    &:nth-child(2) {
+      animation-delay: 120ms;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 240ms;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 360ms;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: $shadow-team-hover;
+    }
+
+    @media (min-width: 768px) {
+      flex-basis: calc((100% - 30px) / 2);
+      max-width: none;
+    }
+
+    @media (min-width: 1200px) {
+      flex-basis: calc((100% - 90px) / 4);
+    }
   }
 
-  &:nth-child(4) {
-    animation-delay: 360ms;
+  &__image {
+    width: 100%;
   }
 
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow:
-      0px 8px 18px rgba(0, 0, 0, 0.12),
-      0px 4px 8px rgba(0, 0, 0, 0.14),
-      0px 2px 4px rgba(0, 0, 0, 0.2);
+  &__name {
+    margin: 30px 0 10px;
+    font-family: $font-secondary;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.18;
+    color: $color-primary-text;
   }
-}
 
-.team-name {
-  margin: 30px 0 10px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.18;
-  color: var(--nav_and_h-color);
-}
-
-.team-position {
-  margin: 0 0 16px;
-  color: var(--maintext-color);
+  &__position {
+    margin: 0 0 16px;
+    color: $color-secondary-text;
+  }
 }

@@ -1,0 +1,46 @@
+%section-title {
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: $font-secondary;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.17;
+
+  @media (min-width: 1200px) {
+    margin-bottom: 50px;
+    font-size: 36px;
+  }
+}
+
+%centered-list {
+  @include flex($justify: center);
+}
+
+%centered-icon-link {
+  @include flex($justify: center, $align: center);
+  border-radius: 50%;
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+%primary-button {
+  border: none;
+  border-radius: 4px;
+  background-color: $color-accent;
+  color: $color-white;
+  cursor: pointer;
+  transition: background-color 250ms ease, box-shadow 250ms ease;
+  box-shadow: $shadow-button;
+}
+
+%card-motion {
+  animation: fadeInUp 650ms ease both;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+%form-field {
+  width: 100%;
+  border: 1px solid $color-primary-text-transparent;
+  border-radius: 4px;
+  outline: transparent;
+  transition: border-color 250ms ease, box-shadow 250ms ease;
+}
