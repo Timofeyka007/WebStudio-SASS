@@ -3,27 +3,20 @@
   animation: fadeInDown 700ms ease both;
 
   &__container {
-    @include flex($justify: center, $align: center, $direction: column, $gap: 12px);
+    @include flex($justify: space-between, $align: center);
     min-height: 60px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-
-    @media (min-width: 480px) {
-      gap: 16px;
-    }
 
     @media (min-width: 768px) {
-      flex-direction: row;
       justify-content: flex-start;
-      gap: 0;
       min-height: 80px;
-      padding-top: 0;
-      padding-bottom: 0;
     }
   }
 
   &__nav {
+    display: none;
+
     @media (min-width: 768px) {
+      display: block;
       margin-left: 88px;
     }
 
@@ -33,28 +26,14 @@
   }
 
   &__nav-list {
-    @include flex($justify: center, $gap: 24px);
-    flex-wrap: wrap;
-
-    @media (min-width: 480px) {
-      gap: 40px;
-    }
-
-    @media (min-width: 768px) {
-      gap: 50px;
-      flex-wrap: nowrap;
-    }
+    @include flex($justify: center, $gap: 50px);
   }
 
   &__nav-link {
     display: block;
-    padding: 8px 0;
     position: relative;
+    padding: 32px 0;
     font-size: 14px;
-
-    @media (min-width: 768px) {
-      padding: 32px 0;
-    }
 
     &--current {
       color: $color-accent;
@@ -97,16 +76,6 @@
     }
   }
 
-  &__contacts-phone {
-    margin: 0;
-    color: $color-secondary-text;
-    font-size: 12px;
-
-    @media (min-width: 1200px) {
-      font-size: 14px;
-    }
-  }
-
   &__contacts-icon {
     flex-shrink: 0;
     fill: currentColor;
@@ -117,6 +86,195 @@
 
     &--smartphone {
       @include size(10px, 16px);
+    }
+  }
+
+  &__menu-btn {
+    @include flex($justify: center, $align: center, $direction: column, $gap: 4px);
+    @include size(40px);
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: $color-primary-text;
+    cursor: pointer;
+    transition: color 250ms ease;
+
+    @include hover-focus {
+      color: $color-accent;
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__menu-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: currentColor;
+  }
+
+  &__logo {
+    display: block;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1100;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-white;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(100%);
+  transition: opacity 300ms ease, visibility 300ms ease, transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  &__container {
+    position: relative;
+    @include flex($direction: column);
+    width: 100%;
+    min-width: 320px;
+    min-height: 100%;
+    padding: 48px 40px;
+    background-color: $color-white;
+    overflow-y: auto;
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    @include flex($justify: center, $align: center);
+    @include size(40px);
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: $color-primary-text;
+    cursor: pointer;
+    transition: color 250ms ease, transform 250ms ease;
+
+    @include hover-focus {
+      color: $color-accent;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__close-icon {
+    @include size(24px);
+    fill: currentColor;
+  }
+
+  &__nav-list {
+    @include flex($direction: column, $gap: 32px);
+  }
+
+  &__nav-link {
+    display: block;
+    font-family: $font-primary;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: 0;
+    color: $color-primary-text;
+    overflow-wrap: anywhere;
+    transition: color 250ms ease;
+
+    @media (min-width: 480px) {
+      font-size: 40px;
+    }
+
+    &--current,
+    &:hover,
+    &:focus {
+      color: $color-accent;
+    }
+  }
+
+  &__bottom {
+    margin-top: auto;
+    padding-top: 64px;
+  }
+
+  &__contacts {
+    @include flex($direction: column, $gap: 32px);
+    margin-bottom: 64px;
+  }
+
+  &__phone {
+    display: block;
+    font-family: $font-primary;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.18;
+    letter-spacing: 0;
+    color: $color-accent;
+    overflow-wrap: anywhere;
+
+    @media (min-width: 480px) {
+      font-size: 34px;
+    }
+  }
+
+  &__email {
+    display: block;
+    font-family: $font-primary;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.17;
+    letter-spacing: 0;
+    color: $color-secondary-text;
+    overflow-wrap: anywhere;
+
+    @media (min-width: 480px) {
+      font-size: 24px;
+    }
+  }
+
+  &__socials {
+    @include flex($align: center);
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  &__social-item {
+    &:not(:last-child) {
+      margin-right: 10px;
+      padding-right: 10px;
+      border-right: 1px solid $color-primary-text-transparent;
+    }
+  }
+
+  &__social-link {
+    font-family: $font-primary;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.22;
+    letter-spacing: 0;
+    color: $color-accent;
+    overflow-wrap: anywhere;
+
+    @media (min-width: 480px) {
+      font-size: 18px;
     }
   }
 }
